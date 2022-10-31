@@ -39,4 +39,31 @@ public class OwnerServiceTest {
 		assertThat(owner.getFirst_name(), is(NAME));
 	}
 	
+	@Test
+	public void testDeleteOwner() {
+
+		String first_name = "Betty";
+		String last_name = "Davis";
+		String address = "638 Cardinal Ave.";
+		String city = "Sun Prairie";
+		String telephone = "6085551749";
+
+		Owner owner = new Owner(first_name, last_name, address, city, telephone);
+		owner= ownerService.create(owner);
+		logger.info("" + owner);
+
+		try {
+			ownerService.delete(owner.getId());
+		} catch (OwnerNotFoundException e) {
+			assertThat(e.getMessage(), false);
+		}
+
+		try {
+			ownerService.findById(owner.getId());
+			assertThat(true, is(false));
+		} catch (OwnerNotFoundException e) {
+			assertThat(true, is(true));
+		}
+	}
+	
 }
