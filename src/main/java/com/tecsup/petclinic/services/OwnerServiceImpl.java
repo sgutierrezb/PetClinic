@@ -15,14 +15,12 @@ public class OwnerServiceImpl implements OwnerService {
 
 	@Autowired
 	OwnerRepository ownerRepository;
-
+	
 	@Override
-	public void delete(Long id) throws OwnerNotFoundException {
-
-		Owner own = findById(id);
-		ownerRepository.delete(own);
+	public Owner create(Owner owner) {
+		return ownerRepository.save(owner);
 	}
-
+	
 	@Override
 	public Owner findById(long id) throws OwnerNotFoundException {
 		Optional<Owner> own = ownerRepository.findById(id);
@@ -32,11 +30,21 @@ public class OwnerServiceImpl implements OwnerService {
 		return own.get();
 	}
 
-	public Owner create(Owner owner) {
-		return ownerRepository.save(owner);
-	}
-
+	@Override
 	public Owner update(Owner own) {
 		return ownerRepository.save(own);
 	}
+
+	@Override
+	public void delete(Long id) throws OwnerNotFoundException {
+
+		Owner own = findById(id);
+		ownerRepository.delete(own);
+	}
+
+	@Override
+	public Iterable<Owner> findAll() {
+		return ownerRepository.findAll();
+	}
+
 }

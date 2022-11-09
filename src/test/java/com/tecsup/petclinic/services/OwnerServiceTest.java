@@ -41,8 +41,8 @@ public class OwnerServiceTest {
 
 		//          ACTUAL                 , EXPECTED 
 		assertThat(ownerCreated.getId()      , notNullValue());
-		assertThat(ownerCreated.getFirst_name()    , is(FIRST_NAME));
-		assertThat(ownerCreated.getLast_name() , is(LAST_NAME));
+		assertThat(ownerCreated.getFirstName()    , is(FIRST_NAME));
+		assertThat(ownerCreated.getLastName() , is(LAST_NAME));
 		assertThat(ownerCreated.getAddress()  , is(ADDRESS));
 		assertThat(ownerCreated.getCity()  , is(CITY));
 		assertThat(ownerCreated.getTelephone()  , is(TELEPHONE));
@@ -87,7 +87,7 @@ public class OwnerServiceTest {
 			fail(e.getMessage());
 		}
 		logger.info("" + owner);
-		assertThat(owner.getFirst_name(), is(NAME));
+		assertThat(owner.getFirstName(), is(NAME));
 	}
 	@Test
 	public void testUpdateOwnerById() {

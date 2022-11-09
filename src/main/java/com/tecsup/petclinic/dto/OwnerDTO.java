@@ -1,41 +1,14 @@
-package com.tecsup.petclinic.entities;
+package com.tecsup.petclinic.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity(name = "owners")
-public class Owner {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OwnerDTO {
 	private long id;
-	@Column(name="first_name")
 	private String firstName;
-	@Column(name="last_name")
 	private String lastName;
-	@Column(name="address")
 	private String address;
-	@Column(name="city")
 	private String city;
-	@Column(name="telephone")
 	private String telephone;
-
-	public Owner() {
-	}
-
-	public Owner(long id, String firstName, String lastName, String address, String city, String telephone) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.city = city;
-		this.telephone = telephone;
-	}
 	
-	public Owner(String firstName, String lastName, String address, String city, String telephone) {
+	public OwnerDTO(String firstName, String lastName, String address, String city, String telephone) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -94,8 +67,7 @@ public class Owner {
 
 	@Override
 	public String toString() {
-		return "Owner [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+		return "OwnerDTO [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
 				+ ", city=" + city + ", telephone=" + telephone + "]";
 	}
-
 }

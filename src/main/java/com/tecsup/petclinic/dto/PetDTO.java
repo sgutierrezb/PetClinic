@@ -33,7 +33,6 @@ public class PetDTO {
 		this.ownerId = ownerId;
 		this.birthDate = birthDate;
 	}
-
 	
 	public long getId() {
 		return id;
